@@ -1,12 +1,12 @@
 import React from "react";
-import { useState } from 'react'
+import { useState } from "react";
 
 const Home = () => {
   return (
     <>
-      <div>Home</div>
+      <div className="textext-3xl font-bold underline">Home</div>
     </>
   );
 };
 
-export default Home
+export { Home };
