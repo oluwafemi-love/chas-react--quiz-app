@@ -1,7 +1,22 @@
 import { useState } from "react";
 
+const COLORS = [
+  "bg-red-500",
+  "bg-blue-500",
+  "bg-green-500",
+  "bg-purple-500",
+  "bg-pink-500",
+  "bg-yellow-500",
+  "bg-indigo-500",
+];
+
 export default function Avatar({ username = "User", size = 64 }) {
   const [image, setImage] = useState(null);
+
+  // Pick random color ONCE
+  const [bgColor] = useState(() => {
+    return COLORS[Math.floor(Math.random() * COLORS.length)];
+  });
 
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
@@ -11,11 +26,12 @@ export default function Avatar({ username = "User", size = 64 }) {
   };
 
   return (
-    <div className="flex flex-col items-center gap-2">
+    <div className="flex flex-col  gap-2">
       {/* Avatar */}
       <div
         style={{ width: size, height: size }}
-        className="rounded-full bg-gray-300 flex items-center justify-center overflow-hidden text-white font-semibold text-xl"
+        className={`rounded-full flex items-center justify-center overflow-hidden 
+        text-white font-semibold text-xl ${image ? "bg-transparent" : bgColor}`}
       >
         {image ? (
           <img
