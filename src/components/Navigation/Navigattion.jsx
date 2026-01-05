@@ -5,7 +5,7 @@ import "./Navigattion.css";
 export const Navigattion = () => {
   const [activeMenu, setActiveMenu] = useState(false);
   return (
-    <div className="nav-wrapper w-fit overflow-hidden mb-[40px]">
+    <div className="nav-wrapper w-fit overflow-hidden">
       {/*off-screen menu */}
       <div
         className={`${
@@ -22,7 +22,7 @@ export const Navigattion = () => {
       </div>
 
       {/*Hamburger Icon */}
-      <nav className="p-3 flex justify-between">
+      <nav className="flex justify-between">
         <div
           onClick={() => {
             setActiveMenu(!activeMenu);
@@ -34,11 +34,9 @@ export const Navigattion = () => {
           <span className=""></span>
         </div>
       </nav>
-
     </div>
   );
 };
-
 
 // return (
 //     <>
@@ -49,6 +47,6 @@ export const Navigattion = () => {
 //         <li>Result and Report</li>
 //         <li>Leaderboard</li>
 //       </ul>
-    
+
 //     </>
 //   )

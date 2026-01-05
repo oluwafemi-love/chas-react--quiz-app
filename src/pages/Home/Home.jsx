@@ -10,7 +10,7 @@ const Home = () => {
   return (
     <>
       <div className="homeWrapper">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between mb-[40px]">
           <Avatar username="Raspberry" />
           <Navigattion />
         </div>

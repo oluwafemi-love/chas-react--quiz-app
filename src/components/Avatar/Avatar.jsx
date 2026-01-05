@@ -27,7 +27,7 @@ export default function Avatar({ username = "User", size = 64 }) {
   };
 
   return (
-    <div className="w-fit flex flex-col gap-2 items-center">
+    <div className="w-fit flex flex-col gap-2 items-center relative">
       {/* Avatar */}
       <div
         style={{ width: size, height: size }}
@@ -46,8 +46,8 @@ export default function Avatar({ username = "User", size = 64 }) {
       </div>
 
       {/* Upload */}
-      <label className="text-sm cursor-pointer text-blue-600 w-fit">
-        Upload
+      <label className="text-sm cursor-pointer absolute rounded-[50%] right-0 bottom-0 w-[20px] h-[20px] outline-1 outline-zinc-50/50 bg-[black]">
+       
         <input
           type="file"
           accept="image/*"
