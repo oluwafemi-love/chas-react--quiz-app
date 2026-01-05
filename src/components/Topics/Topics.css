@@ -1,0 +1,21 @@
+.topic {
+  background-color: #f8fafc;
+  border-radius: 10px;
+
+  width: 319px;
+  height: 82px;
+  padding-left: 20px;
+
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 26px;
+
+  font-family: "Archivo";
+  font-style: normal;
+  font-weight: 600;
+  font-size: calc(17 / 16 * 1rem);
+  line-height: 24px;
+  box-shadow: 0.1px 2.3px 0 3.5px hsla(252, 10%, 51%, 0.5) ;
+
+}

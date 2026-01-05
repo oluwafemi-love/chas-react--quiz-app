@@ -2,7 +2,8 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './main.css'
 // import App from './App.jsx'
-import App from './components/App/index'
+// import App from './components/App/index'
+import App from './pages/App/index'
 
 const uniqueId = 'content-wrapper';
 
