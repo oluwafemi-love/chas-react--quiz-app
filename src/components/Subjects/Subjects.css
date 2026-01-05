@@ -1,0 +1,14 @@
+.subject.fokus {
+  border-bottom: 2px solid hsl(262, 100%, 67%);
+  .imageWrappa{
+    border-color: hsl(262, 100%, 67%);
+  }
+}
+
+.subject-name{
+   /* Truncate text */
+  width: 110px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

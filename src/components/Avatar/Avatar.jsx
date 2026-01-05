@@ -1,4 +1,5 @@
 import { useState } from "react";
+import './Avatar.css'
 
 const COLORS = [
   "bg-red-500",
@@ -26,12 +27,12 @@ export default function Avatar({ username = "User", size = 64 }) {
   };
 
   return (
-    <div className="flex flex-col  gap-2">
+    <div className="w-fit flex flex-col gap-2 items-center">
       {/* Avatar */}
       <div
         style={{ width: size, height: size }}
-        className={`rounded-full flex items-center justify-center overflow-hidden 
-        text-white font-semibold text-xl ${image ? "bg-transparent" : bgColor}`}
+        className={`navAvatar rounded-full flex items-center justify-center overflow-hidden 
+        text-white ${image ? "bg-transparent" : bgColor}`}
       >
         {image ? (
           <img
@@ -45,7 +46,7 @@ export default function Avatar({ username = "User", size = 64 }) {
       </div>
 
       {/* Upload */}
-      <label className="text-sm cursor-pointer text-blue-600">
+      <label className="text-sm cursor-pointer text-blue-600 w-fit">
         Upload
         <input
           type="file"

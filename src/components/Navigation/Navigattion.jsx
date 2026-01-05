@@ -5,12 +5,12 @@ import "./Navigattion.css";
 export const Navigattion = () => {
   const [activeMenu, setActiveMenu] = useState(false);
   return (
-    <div className="nav-wrapper">
+    <div className="nav-wrapper w-fit overflow-hidden mb-[40px]">
       {/*off-screen menu */}
       <div
         className={`${
           activeMenu ? "right-0" : "-right-[400px]"
-        } h-screen w-full max-w-[400px] bg-zinc-800 absolute top-0 duration-500`}
+        } h-screen w-full  max-w-[400px] bg-zinc-800 absolute top-0 duration-500`}
       >
         <ul className="text-white p-5 text-2xl font-bold mt-20">
           <li className="mb-5">Home</li>

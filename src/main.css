@@ -1,9 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Archivo", sans-serif;
+  /* font-family: "Archivo Black", sans-serif; */ /*For titles only*/
   line-height: 1.5;
   font-weight: 400;
+  font-style: normal;
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
@@ -13,4 +15,15 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  padding: 30px;
+
+  background: linear-gradient(
+    176.02deg,
+    hsl(276, 100%, 99%) -9.84%,
+    hsla(277, 100%, 95%) 87.12%,
+    hsl(26, 98%, 80%) 107.32%
+  );
 }
