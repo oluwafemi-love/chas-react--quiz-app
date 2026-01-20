@@ -7,6 +7,8 @@ import TopicList from "../../components/Topics/TopicList";
 import "./Home.css";
 
 const Home = () => {
+  const [selectedSubjectId, setSelectedSubjectId] = useState(null);
+  console.log("selectedSubjectId", selectedSubjectId)
   return (
     <>
       <div className="homeWrapper">
@@ -20,11 +22,11 @@ const Home = () => {
         </p>
 
         <ul className="subjectsWrapper flex text-center gap-3 ml-[15px] mb-[40px]">
-          <SubjectList />
+          <SubjectList onSelectSubject = {setSelectedSubjectId}/>
         </ul>
 
         <ul className="ml-[15px]">
-          <TopicList />
+          <TopicList selectedSubjectId = {selectedSubjectId}/>
         </ul>
       </div>
     </>

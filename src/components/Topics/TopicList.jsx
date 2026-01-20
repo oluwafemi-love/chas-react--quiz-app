@@ -1,28 +1,27 @@
 import { quizData } from "../../data/QuizData/QuizData";
 import { Topic } from "./Topic";
 
-const subject = quizData.subjects
+export const TopicList = ({ selectedSubjectId }) => {
+  console.log("TopicList rendered with:", selectedSubjectId);
 
-export const TopicList = () => {
+  if (!selectedSubjectId) return null;
+
+  const subject = quizData.subjects.find(
+    (s) => s.id === selectedSubjectId,
+  );
+
+  if (!subject) {
+    console.error("Subject not found");
+    return null;
+  }
+
   return (
     <>
-      {subject.map((subjecti) =>
-        subjecti.topics.map(({ name, id }) => (
-          <Topic key={id} name={name} />
-        ))
-      )}
+      {subject.topics.map(({ id, name }) => (
+        <Topic key={id} name={name} />
+      ))}
     </>
   );
 };
 
-
-
-function TopicListBySubject({subject}) {
-  return (
-    <div>
-      
-    </div>
-  )
-}
-
-export default TopicList
+export default TopicList;
