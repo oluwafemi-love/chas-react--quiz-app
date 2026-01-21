@@ -2,11 +2,13 @@ import React from "react";
 import { useState } from "react";
 import Avatar from "../../components/Avatar/Avatar";
 import { Navigattion } from "../../components/Navigation/Navigattion";
-import { Subjects } from "../../components/Subjects/Subjects";
-import { Topics } from "../../components/Topics/Topics";
-import "./Home.css"
+import SubjectList from "../../components/Subjects/SubjectList";
+import TopicList from "../../components/Topics/TopicList";
+import "./Home.css";
 
 const Home = () => {
+  const [selectedSubjectId, setSelectedSubjectId] = useState(null);
+  console.log("selectedSubjectId", selectedSubjectId)
   return (
     <>
       <div className="homeWrapper">
@@ -19,9 +21,13 @@ const Home = () => {
           Hey Raspberry, what subject do you want to improve today?
         </p>
 
-        <Subjects />
-        <br />
-        <Topics />
+        <ul className="subjectsWrapper flex text-center gap-3 ml-[15px] mb-[40px]">
+          <SubjectList onSelectSubject = {setSelectedSubjectId}/>
+        </ul>
+
+        <ul className="ml-[15px]">
+          <TopicList selectedSubjectId = {selectedSubjectId}/>
+        </ul>
       </div>
     </>
   );
