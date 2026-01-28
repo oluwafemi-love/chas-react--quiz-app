@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "@tanstack/react-router";
-import { quizData } from "../../data/QuizData/QuizData";
+import { quizData } from "../../../../data/QuizData/QuizData";
 import { QuizRunner } from "./QuizRunner";
 
 //Functionality
