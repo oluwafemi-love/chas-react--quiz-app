@@ -1,5 +1,7 @@
 import { quizData } from "../../data/QuizData/QuizData";
+import { Link } from "@tanstack/react-router";
 import { Topic } from "./Topic";
+import { useParams } from "@tanstack/react-router";
 
 export const TopicList = ({ selectedSubjectId }) => {
   console.log("TopicList rendered with:", selectedSubjectId);
@@ -18,7 +20,9 @@ export const TopicList = ({ selectedSubjectId }) => {
   return (
     <>
       {subject.topics.map(({ id, name }) => (
-        <Topic key={id} name={name} />
+        <Link to="/quiz/$subjectId/$topicId" params={{subjectId:selectedSubjectId, topicId:id}} key={id}>
+          <Topic name={name}></Topic>
+        </Link>
       ))}
     </>
   );
