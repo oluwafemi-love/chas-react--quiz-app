@@ -1,0 +1,17 @@
+.timeleft-wrapper{
+  width: 80px;
+  height: 80px;
+
+  background-color: hsl(1deg, 50%, 99%);
+  outline: 4px solid hsl(260, 80%, 50%);
+  border-radius: 50%;
+
+  display: flex;
+}
+
+.timeleft-data{
+  width: fit-content;
+  margin: 0 auto;
+
+  align-self: center;
+}
