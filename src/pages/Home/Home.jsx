@@ -8,25 +8,32 @@ import "./Home.css";
 
 const Home = () => {
   const [selectedSubjectId, setSelectedSubjectId] = useState(null);
-  console.log("selectedSubjectId", selectedSubjectId)
+  const [userName, setUserName] = useState("Raspberry");
+
+  console.log("selectedSubjectId", selectedSubjectId);
   return (
     <>
       <div className="homeWrapper">
         <div className="flex items-center justify-between mb-[40px]">
-          <Avatar username="Raspberry" />
+          <Avatar username={userName} />
           <Navigattion />
         </div>
 
         <p className="font-semibold text-base leading-6 text-black my-[10px] w-[calc(70%)] ml-[10px] mb-[40px]">
-          Hey Raspberry, what subject do you want to improve today?
+          Hey
+          <span value={userName}>
+            {" "}
+            {userName}
+          </span>
+          , what subject do you want to improve today?
         </p>
 
         <ul className="subjectsWrapper flex text-center gap-3 ml-[15px] mb-[40px]">
-          <SubjectList onSelectSubject = {setSelectedSubjectId}/>
+          <SubjectList onSelectSubject={setSelectedSubjectId} />
         </ul>
 
         <ul className="ml-[15px]">
-          <TopicList selectedSubjectId = {selectedSubjectId}/>
+          <TopicList selectedSubjectId={selectedSubjectId} />
         </ul>
       </div>
     </>

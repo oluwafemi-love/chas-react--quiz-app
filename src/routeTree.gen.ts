@@ -13,10 +13,10 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as SettingsIndexRouteImport } from './routes/Settings/index'
 import { Route as SetQuizDifficultyViewIndexRouteImport } from './routes/SetQuizDifficultyView/index'
 import { Route as ReportIndexRouteImport } from './routes/Report/index'
-import { Route as QuizIndexRouteImport } from './routes/Quiz/index'
 import { Route as ProfileIndexRouteImport } from './routes/Profile/index'
 import { Route as LeaderboardIndexRouteImport } from './routes/Leaderboard/index'
 import { Route as EndOfQuizIndexRouteImport } from './routes/EndOfQuiz/index'
+import { Route as QuizSubjectIdTopicIdRouteImport } from './routes/quiz/$subjectId/$topicId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -39,11 +39,6 @@ const ReportIndexRoute = ReportIndexRouteImport.update({
   path: '/Report/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const QuizIndexRoute = QuizIndexRouteImport.update({
-  id: '/Quiz/',
-  path: '/Quiz/',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const ProfileIndexRoute = ProfileIndexRouteImport.update({
   id: '/Profile/',
   path: '/Profile/',
@@ -59,26 +54,31 @@ const EndOfQuizIndexRoute = EndOfQuizIndexRouteImport.update({
   path: '/EndOfQuiz/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const QuizSubjectIdTopicIdRoute = QuizSubjectIdTopicIdRouteImport.update({
+  id: '/quiz/$subjectId/$topicId',
+  path: '/quiz/$subjectId/$topicId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/EndOfQuiz/': typeof EndOfQuizIndexRoute
   '/Leaderboard/': typeof LeaderboardIndexRoute
   '/Profile/': typeof ProfileIndexRoute
-  '/Quiz/': typeof QuizIndexRoute
   '/Report/': typeof ReportIndexRoute
   '/SetQuizDifficultyView/': typeof SetQuizDifficultyViewIndexRoute
   '/Settings/': typeof SettingsIndexRoute
+  '/quiz/$subjectId/$topicId': typeof QuizSubjectIdTopicIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/EndOfQuiz': typeof EndOfQuizIndexRoute
   '/Leaderboard': typeof LeaderboardIndexRoute
   '/Profile': typeof ProfileIndexRoute
-  '/Quiz': typeof QuizIndexRoute
   '/Report': typeof ReportIndexRoute
   '/SetQuizDifficultyView': typeof SetQuizDifficultyViewIndexRoute
   '/Settings': typeof SettingsIndexRoute
+  '/quiz/$subjectId/$topicId': typeof QuizSubjectIdTopicIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -86,10 +86,10 @@ export interface FileRoutesById {
   '/EndOfQuiz/': typeof EndOfQuizIndexRoute
   '/Leaderboard/': typeof LeaderboardIndexRoute
   '/Profile/': typeof ProfileIndexRoute
-  '/Quiz/': typeof QuizIndexRoute
   '/Report/': typeof ReportIndexRoute
   '/SetQuizDifficultyView/': typeof SetQuizDifficultyViewIndexRoute
   '/Settings/': typeof SettingsIndexRoute
+  '/quiz/$subjectId/$topicId': typeof QuizSubjectIdTopicIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -98,30 +98,30 @@ export interface FileRouteTypes {
     | '/EndOfQuiz/'
     | '/Leaderboard/'
     | '/Profile/'
-    | '/Quiz/'
     | '/Report/'
     | '/SetQuizDifficultyView/'
     | '/Settings/'
+    | '/quiz/$subjectId/$topicId'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/EndOfQuiz'
     | '/Leaderboard'
     | '/Profile'
-    | '/Quiz'
     | '/Report'
     | '/SetQuizDifficultyView'
     | '/Settings'
+    | '/quiz/$subjectId/$topicId'
   id:
     | '__root__'
     | '/'
     | '/EndOfQuiz/'
     | '/Leaderboard/'
     | '/Profile/'
-    | '/Quiz/'
     | '/Report/'
     | '/SetQuizDifficultyView/'
     | '/Settings/'
+    | '/quiz/$subjectId/$topicId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -129,10 +129,10 @@ export interface RootRouteChildren {
   EndOfQuizIndexRoute: typeof EndOfQuizIndexRoute
   LeaderboardIndexRoute: typeof LeaderboardIndexRoute
   ProfileIndexRoute: typeof ProfileIndexRoute
-  QuizIndexRoute: typeof QuizIndexRoute
   ReportIndexRoute: typeof ReportIndexRoute
   SetQuizDifficultyViewIndexRoute: typeof SetQuizDifficultyViewIndexRoute
   SettingsIndexRoute: typeof SettingsIndexRoute
+  QuizSubjectIdTopicIdRoute: typeof QuizSubjectIdTopicIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -165,13 +165,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ReportIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/Quiz/': {
-      id: '/Quiz/'
-      path: '/Quiz'
-      fullPath: '/Quiz/'
-      preLoaderRoute: typeof QuizIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/Profile/': {
       id: '/Profile/'
       path: '/Profile'
@@ -193,6 +186,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EndOfQuizIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/quiz/$subjectId/$topicId': {
+      id: '/quiz/$subjectId/$topicId'
+      path: '/quiz/$subjectId/$topicId'
+      fullPath: '/quiz/$subjectId/$topicId'
+      preLoaderRoute: typeof QuizSubjectIdTopicIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -201,10 +201,10 @@ const rootRouteChildren: RootRouteChildren = {
   EndOfQuizIndexRoute: EndOfQuizIndexRoute,
   LeaderboardIndexRoute: LeaderboardIndexRoute,
   ProfileIndexRoute: ProfileIndexRoute,
-  QuizIndexRoute: QuizIndexRoute,
   ReportIndexRoute: ReportIndexRoute,
   SetQuizDifficultyViewIndexRoute: SetQuizDifficultyViewIndexRoute,
   SettingsIndexRoute: SettingsIndexRoute,
+  QuizSubjectIdTopicIdRoute: QuizSubjectIdTopicIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

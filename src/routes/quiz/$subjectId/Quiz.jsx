@@ -1,6 +1,6 @@
 import React from "react";
 import { useParams } from "@tanstack/react-router";
-import { quizData } from "../../data/QuizData/QuizData";
+import { quizData } from "../../../data/QuizData/QuizData";
 import { QuizRunner } from "./QuizRunner";
 
 //Functionality
@@ -9,14 +9,13 @@ export function Quiz() {
     from: "/quiz/$subjectId/$topicId",
   });
 
-  const topic = quizData.subjects
-    .find((s) => s.id === subjectId)
-    ?.topics.find((t) => t.id === topicId);
+  const subject = quizData.subjects.find((s) => s.id === subjectId);
+
+  const topic = subject?.topics.find((t) => t.id === topicId);
 
   if (!topic) {
     return <p>Topic not found</p>;
   }
-  // const questions = topic?.questions ?? []
 
   return (
     <>
@@ -25,4 +24,3 @@ export function Quiz() {
     </>
   );
 }
-
